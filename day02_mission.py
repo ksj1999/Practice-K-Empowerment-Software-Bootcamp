@@ -1,17 +1,38 @@
 import random
 
-green = random.randint(0, 1)
-small = random.randint(0, 1)
+small = random.choice([True, False])
+print(small)
+green = random.choice([True, False])
+print(green)
 
+# small = False
+# green = False
 
-if green:
-    if small:
-        print("pea")
+if small:
+    if green:
+        print('완두콩입니다')
     else:
-        print("watermelon")
-
+        print('체리')
 else:
-    if small:
-        print("cherry")
+    if green:
+        print('수박')
     else:
-        print("pumpkin")
+        print('호박')
+
+
+
+# import random
+#
+# guess = random.randint(1, 10)
+# secret = random.randint(1, 10)
+#
+# diff = secret - guess
+#
+# if diff > 0:
+#     print("too high")
+#
+# elif diff < 0:
+#     print("too low")
+#
+# else:
+#     print("just right")
