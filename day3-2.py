@@ -3,19 +3,18 @@
 # prime number
 
 number = int(input("input number : "))
+is_prime = True
 
-counts = 0
 
-k = 1
 for k in range(2, number):
     if number % k == 0:
-        counts = counts + 1
+        is_prime = False
 
-if counts:   #0이면 소수라는 뜻
-    print(f'{number}is not prime number.')
+if is_prime:   #0이면 소수라는 뜻
+    print(f'{number}is prime number!')
 
 else:
-    print(f'{number}is prime number!')
+    print(f'{number}is not prime number.')
 
 
 
