@@ -16,6 +16,6 @@ Boaty = 'Boat'
 Horsey = 'Horse'
 Trainy = 'Train'
 
-print("Boaty Mc %s face" % Boaty,
-"Horsey Mc %s face" % Horsey,
-"Trainy Mc %s face" % Trainy)
+print("Boaty Mc {}s face".format(Boaty),
+"Horsey Mc {} face".format(Horsey),
+"Trainy Mc {} face".format(Trainy))
