@@ -9,6 +9,8 @@ is_prime = True
 for k in range(2, number):
     if number % k == 0:
         is_prime = False
+        break
+    print(k)
 
 if is_prime:   #0이면 소수라는 뜻
     print(f'{number}is prime number!')
