@@ -1,3 +1,7 @@
-song = '''when an eel grabs your arm,
+song = """when an eel grabs your arm,
 And it causes great harm,
-That's - a moray'''
+That's - a moray"""
+
+
+idx = song.find('m')
+print(idx, song[idx].upper())
