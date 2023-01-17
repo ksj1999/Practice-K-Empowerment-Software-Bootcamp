@@ -1,48 +1,37 @@
-import random
-
-alcohol_foods = {
-    '맥주' : '치킨',
-    '소주' : '골뱅이소면',
-    '위스키' : '치즈',
-    '고량주' : '짬뽕'
-}
-alcohol_list = list(alcohol_foods) # extract keys
-food_list = [food for food in alcohol_foods.values()]  # extract values and append list
-#print(alcohol_list, food_list)
-
-while True:
-    alcohol = input(f'술을 선택하세요 1) {alcohol_list[0]} 2) {alcohol_list[1]} 3) {alcohol_list[2]} 4) {alcohol_list[3]} 5) 랜덤 6) 계산 :')
-    if alcohol == '6':
-        print('다음에 또 오세요~')
-        break
-    elif alcohol == '1':
-        print(f'{alcohol_list[0]}에 어울리는 안주는 {alcohol_foods[alcohol_list[0]]}입니다')
-        pass
-    elif alcohol == '2':
-        print(f'{alcohol_list[1]}에 어울리는 안주는 {alcohol_foods[alcohol_list[1]]}입니다')
-        pass
-    elif alcohol == '3':
-        print(f'{alcohol_list[2]}에 어울리는 안주는 {alcohol_foods[alcohol_list[2]]}입니다')
-        pass
-    elif alcohol == '4':
-        print(f'{alcohol_list[3]}에 어울리는 안주는 {alcohol_foods[alcohol_list[3]]}입니다')
-        pass
-    elif alcohol == '5':
-        print(f'{random.choice(alcohol_list)}에 어울리는 안주는 {random.choice(food_list)}입니다')
-    else:
-        print('메뉴에서 골라주세요.')
-
-
-
-# # dictionary
+# # subway = [10, 20, 30]
+# #
+# # subway = ['you', 'joe', 'kim']
+# # print(subway.index('kim'))
+# #
+# # subway.append('haha')
+# # print(subway)
+# #
+# # subway.insert(1, 'jung')
+# # print(subway)
+# #
+# # print(subway.pop())
+# # print(subway)
+# # # print(subway.pop())
+# # # print(subway)
+# # # print(subway.pop())
+# # # print(subway)
+# #
+# # subway.append('you')
+# # print(subway)
+# # print(subway.count('you'))
+# #
+# # num_list = [5, 2, 4, 3, 1]
+# # num_list.sort()
+# # print(num_list)
+# #
+# # num_list.reverse()
+# # print(num_list)
+# # num_list.clear()
+# # print(num_list)
+# num_list = [5, 2, 4, 3, 1]
+# mix_list = ['joe', 1, True]
+# print(mix_list)
 #
-# students = {'name':'kiminha', 'age': 23, 'eyes': [0.9, 1.1]}
-# # for k in students.keys():
-# # for k in students():
-# # for k in students.values():
-# for k, v in students.items():
-#     #print(k)
-#     print(f'{k} : {v}')
-# print(f'이름은 {students["name"]}, 나이는 {students["age"]}세', end=' ')
-# print(f'시력은 좌: {students["eyes"][0]}, 우: {students["eyes"][1]}')
-#
+# num_list.extend(mix_list)
+# print(num_list)
+
