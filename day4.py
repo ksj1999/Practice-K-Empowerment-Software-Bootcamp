@@ -34,4 +34,31 @@
 #
 # num_list.extend(mix_list)
 # print(num_list)
+#
+## print(cabinet[3])
+# print(cabinet[100])
+#
+# print(cabinet.get(3))
+# print(cabinet.get(5))
+# print(cabinet.get(5, 'use'))
 
+# print(3 in cabinet)
+# print(5 in cabinet)
+
+cabinet = {'A3':'you', 'B100':'kim'}
+print(cabinet['A3'])
+print(cabinet['B100'])
+
+print(cabinet)
+cabinet['A3'] = 'kill'
+cabinet['c20'] = 'joe'
+print(cabinet)
+
+del cabinet['A3']
+print(cabinet)
+
+print(cabinet.keys())
+print(cabinet.values())
+print(cabinet.items())
+cabinet.clear()
+print(cabinet)
