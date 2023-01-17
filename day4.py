@@ -7,9 +7,12 @@ alcohol_foods = {
     '고량주' : '짬뽕'
 }
 alcohol_list = list(alcohol_foods) # extract keys
+food_list = [food for food in alcohol_foods.values()]  # extract values and append list
+#print(alcohol_list, food_list)
+
 while True:
-    alcohol = input(f'술을 선택하세요 1) {alcohol_list[0]} 2) {alcohol_list[1]} 3) {alcohol_list[2]} 4) {alcohol_list[3]} r) 랜덤:')
-    if alcohol == '5':
+    alcohol = input(f'술을 선택하세요 1) {alcohol_list[0]} 2) {alcohol_list[1]} 3) {alcohol_list[2]} 4) {alcohol_list[3]} 5) 랜덤 6) 계산 :')
+    if alcohol == '6':
         print('다음에 또 오세요~')
         break
     elif alcohol == '1':
@@ -24,9 +27,8 @@ while True:
     elif alcohol == '4':
         print(f'{alcohol_list[3]}에 어울리는 안주는 {alcohol_foods[alcohol_list[3]]}입니다')
         pass
-    elif alcohol == 'r':
-        ran = random.randint(0, 3)
-        print(f'{alcohol_list[ran]}에 어울리는 안주는 {alcohol_foods[alcohol_list[ran]]}입니다')
+    elif alcohol == '5':
+        print(f'{random.choice(alcohol_list)}에 어울리는 안주는 {random.choice(food_list)}입니다')
     else:
         print('메뉴에서 골라주세요.')
 
