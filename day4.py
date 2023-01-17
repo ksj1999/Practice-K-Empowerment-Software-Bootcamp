@@ -1,12 +1,11 @@
-# ex 7-4
+# dictionary
 
-things = ['mozzarealla', 'cinderella', 'salmonella']
+students = {'name':'kiminha', 'age': 23, 'eyes': [0.9, 1.1]}
+# for k in students.keys():
+# for k in students():
+for k, v in students.items():
+    #print(k)
+    print(f'{k} : {v}')
+print(f'이름은 {students["name"]}, 나이는 {students["age"]}세', end=' ')
+print(f'시력은 좌: {students["eyes"][0]}, 우: {students["eyes"][1]}')
 
-things[-2] = things[-2].title()
-print(things)
-things[0] = things[0].upper()
-print(things)
-print(f'delete {things.pop()} from things')
-
-# for thing in things:
-#     print(thing.title())
