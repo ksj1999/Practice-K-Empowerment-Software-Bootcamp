@@ -1,36 +1,52 @@
-# # list
+# list
+import copy
 
-big_bang = ['GD', '태양', '탑', '대성', '승리']
-exo = ['백현', '첸']
-
-# big_bang.append('인하')
-big_bang.insert(1, '인하')
-# print(big_bang * 2)
-#exo.extend(big_bang)
-# exo = exo + big_bang
-exo.append(big_bang)
-print(exo)
-print(exo[2][2])
-print(exo[-1][-4])  #태양
-exo[-2] = '시우민'
-print(exo)
-#print(exo.pop())
-print(exo[2].pop())  #빅뱅 pop
-print(exo)
-print(exo[2].pop(-2)) #탑 pop
-print(exo)
-del exo[2][-1]  #대성 del
-print(exo)
-# exo.remove('인하') #not in exo
-exo[2].remove('인하')
-print(exo)
+a = [1, 2, [5, -9]]
+b = copy.deepcopy(a)
+c = list(a)
+d = a[:]
+a[2][1] = 7  # mutable, deep copy / B not affected
+print(a, b)
 
 
-# scores = ('B+', 'A+', 'C+')
-# print(scores[1], scores[2])
-# temp = list(scores)
-#
-# temp[1] = 'C+'
-# temp[2] = 'A+'
-# scores = tuple(temp)
-# print(scores[1], scores[2])
+
+
+# a = [1, 2, 3]
+# b = a.copy()
+# c = list(a)
+# d = a[:]
+# a[2] = 'sw'  #immutable, b/c/d/ not affected
+# print(a, b, c, d)
+
+
+primes = [2, 19, 3, 5, 7, 11]
+primes_cp = primes
+print(primes)
+print(primes_cp)
+primes[-1] = 'lunch time'
+print(primes)
+print(primes_cp)
+primes[0] = 'morning coffee'
+print(primes)
+print(primes_cp)
+
+
+
+# #TypeError: '<' not supported between instances of 'str' and 'int'
+# #mixed = [6, 4, 5, 'A', 7, '트와이스', 'B', 'b', '마마무']
+# mixed = ['6', '4', '5', 'A', '7', '트와이스', 'B', 'b', '마마무']
+# # mixed.sort()
+# mixed.sort(reverse=True)
+# print(mixed)
+
+
+
+# primes = [2, 19, 3.0, 5, 7, 11]
+# print(primes)
+# primes.sort()
+# print(primes)
+
+
+# primes_sorted = sorted(primes)
+# print(primes)
+# print(primes_sorted)
