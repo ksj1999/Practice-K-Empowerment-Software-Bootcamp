@@ -1,14 +1,12 @@
-#list comprehension
-#
-# odd_lists = []
-# for i in range(1, 10):
-#     if i % 2 == 1:
-#         odd_lists.append(i)
-# print(odd_lists)
+# ex 7-4
 
+things = ['mozzarealla', 'cinderella', 'salmonella']
 
-odd_lists = [i for i in range(1,  11) if i % 2 == 1]
-print(odd_lists, type(odd_lists))
+things[-2] = things[-2].title()
+print(things)
+things[0] = things[0].upper()
+print(things)
+print(f'delete {things.pop()} from things')
 
-odd_tuples = (i for i in range(1,  11) if i % 2 == 1)
-print(odd_tuples, type(odd_tuples))
+# for thing in things:
+#     print(thing.title())
