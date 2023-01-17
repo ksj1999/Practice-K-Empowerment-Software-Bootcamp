@@ -3,6 +3,7 @@
 students = {'name':'kiminha', 'age': 23, 'eyes': [0.9, 1.1]}
 # for k in students.keys():
 # for k in students():
+# for k in students.values():
 for k, v in students.items():
     #print(k)
     print(f'{k} : {v}')
