@@ -5,8 +5,18 @@ a = [1, 2, [5, -9]]
 b = copy.deepcopy(a)
 c = list(a)
 d = a[:]
+a[1] = -77  #immutable
 a[2][1] = 7  # mutable, deep copy / B not affected
 print(a, b)
+
+
+
+# a = [1, 2, [5, -9]]
+# b = copy.deepcopy(a)
+# c = list(a)
+# d = a[:]
+# a[2][1] = 7  # mutable, deep copy / B not affected
+# print(a, b)
 
 
 
