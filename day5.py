@@ -2,7 +2,7 @@
 import random
 
 # def calucate_fee(*args):...
-def calucate_fee(args) -> list:
+def calucate_fee(args) -> dict:
 
     """
     놀이공원 요금 계산
@@ -20,14 +20,14 @@ def calucate_fee(args) -> list:
         else:
             total = total + 3000
             kids = kids + 1
-    return [len(args), adults, kids, total]
+    return {'no_of_people' : len(args), 'no_of_adults' : adults,'no_of_kids' : kids, 'total_fee' : total}
 
 
 
 no_of_visitor = int(input('몇 분 이세요? '))
-ages = [random.randint(1, 60) for age in range(no_of_visitor)]
+ages = {random.randint(1, 60) for age in range(no_of_visitor)}
 results = calucate_fee(ages)
-print(f'{results[0]}명, 방문하셨고 어른{results[1]}명, 아이 {results[2]}명, 총 요금은 {results[-1]}입니다')
+print(f"전체인원은 {results['no_of_people']}명, 어른 {results['no_of_adults']}명 이며 어린이 {results['no_of_kids']}명 이고 가격은 {results['total_fee']} 입니다")
 
 
 
