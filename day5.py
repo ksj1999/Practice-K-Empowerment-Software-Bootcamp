@@ -1,31 +1,13 @@
+# function
 
+def do_nothing():
+    pass
 
-def isprime(n):
-    """
-    매개변수로 받은 정수가 소수인지 여부를 판정하는 함수
-    :param n: integer numb
-    :return: true or false
-    """
-    if n <= 1:
-        return False
-    for k in range(2, n):
-        if n % k == 0:
+mamamoo = ['화사', '솔라', '휘인', '문별']
 
-            return False
-    else:
-        return True
-
-#def isprime(n):...
-#help(isprime)
-
-# print(isprime(43))
-
-start = int(input("input start number : "))
-end = int(input("input end number : "))
-
-if end < start:
-    start, end = end, start
-
-for i in range(start, end+1):
-    if isprime(i):
-        print(i, end=' ')
+#print(mamamoo.pop())  # 삭제할 값 리턴 후 삭제
+print(mamamoo.remove('문별'))  # 삭제만 함, 따라서 print함수는 출력할 값이 없다
+print(mamamoo)
+#
+# do_nothing()
+# print(do_nothing())
