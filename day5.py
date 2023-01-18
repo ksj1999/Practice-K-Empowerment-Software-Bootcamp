@@ -1,18 +1,27 @@
-# closures
+# lambda
+import random
+#
+# def process(no_lists, f):
+#     for no in no_lists:
+#         print(f(no))
+#
+#
+# def squares(n):
+#     """
+#     제곱 함수
+#     :param n: integer
+#     :return: integer
+#     """
+#
+#     return n * n
 
-def calculate():
-    x = 1
-    y = 2
-    temp = 0
-    def add_sub(n):
-        nonlocal temp
-       #  x = 11  # local variable
-        temp = temp + x + n - y
-        return temp
-    print('once')
-    return add_sub
 
-c1 = calculate()
-for i in range(5):
-    print(c1(i))
+def process(no_lists, f):
+    for no in no_lists:
+        print(f(no))
 
+
+
+numbers = [random.randint(1, 100) for i in range(5)]
+print(numbers)
+process(numbers, lambda x: x * x)
