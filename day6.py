@@ -1,8 +1,18 @@
-try:
-    expr = input('분자 분모 입력 (띄어쓰기로 구분) : ').split()
-    print(int(expr[0]) / int(expr[1]))
+def test(func):
+    def new_function(*args):
+        print('start')
+        result = func(*args)
+        print('실행결과', result)
+        print('end')
+        return result
+    return new_function
 
 
-except Exception:
-    print(f'Caught an oops')
 
+
+@test
+def add_ints(a, b):
+    return a + b
+
+
+add_ints(3, 5)
