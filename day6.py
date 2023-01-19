@@ -22,5 +22,6 @@ def factorial_recu(n):
 
 
 
-print(factorial_recu(5))
-print(factorial_iter(5))
+
+print(factorial_iter(10))
+print(factorial_recu(10))
