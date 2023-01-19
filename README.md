@@ -1,1 +1,1 @@
-This repository consists of sample, assignments and nptes for the K-empowerment software bootcamp.
+This repository consists of sample, assignments and notes for the K-empowerment software bootcamp.
