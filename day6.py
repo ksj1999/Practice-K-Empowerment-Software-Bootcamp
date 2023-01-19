@@ -14,3 +14,5 @@ def change_print_global():
 change_print_global()
 print_global()
 print(g)
+print(globals())
+print(__name__)
