@@ -1,28 +1,16 @@
-# generator
+g = 1  # global
+
+def print_global():
+    # g = 1  # local
+    print(g)
+
+def change_print_global():
+    global g
+    print(g)
+    g = 2
+    print(g)
 
 
-
-def document_info(func):
-    def  new_function(*args, *kwargs):
-        print('실행중인 함수 : ', func.__name__)
-        print('위치 기반 인수들 : ', args)
-        print('키워드 기반 인수들 : ', kwargs)
-        result = func(*args, **kwargs)
-        print('실행결과', result)
-        return result
-    return new_function
-
-@document_info
-def sub_int(x, y):
-    return x - y
-
-@document_info
-def squares():
-
-
-
-print(sub_int(7, 3))
-print(squares(5))
-info_sub_int = document_info(sub_int)
-r = info_sub_int()
-
+change_print_global()
+print_global()
+print(g)
