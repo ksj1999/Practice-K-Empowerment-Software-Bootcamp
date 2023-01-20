@@ -39,4 +39,14 @@ class Element():
 
 
 
+# 10-5
+class Element():
+    def __init__(self, dic):
+        self.name = dic['name']
+
+
+el_dict = {'name' : 'hydrogen', 'symbol' : 'h', 'number' : '1'}
+
+
+hydrogen = Element(el_dict)
 
