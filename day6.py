@@ -8,8 +8,6 @@ def test(func):
     return new_function
 
 
-
-
 @test
 def add_ints(a, b):
     return a + b
