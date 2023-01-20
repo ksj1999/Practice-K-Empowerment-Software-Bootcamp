@@ -29,3 +29,14 @@ b = Thing2('xyz')
 print(b.letters)
 
 
+# 10-4
+
+class Element():
+    def __init__(self):
+        self.name = 'hydrogen'
+        self.symbol = 'h'
+        self.number = '1'
+
+
+
+
