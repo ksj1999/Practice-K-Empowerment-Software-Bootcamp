@@ -9,8 +9,10 @@ class Pokemon:
 
     def info(self):
         print(f"{self.owner}의 포켓몬이 사용 가능한 스킬은")
-        for skill in self.skills:
-            print(skill)
+        for i in range(len(self.skills)):
+            print(f'{i+1} : {self.skills[i]}')
+        # for skill in self.skills:
+        #     print(f'{skill}')
 
     def attack(self, idx):
         print(f'{self.skills[idx]}공격 시전!')
@@ -39,14 +41,43 @@ class Gobugi(Pokemon):  # inheritance
         print(f'{self.name}가 수영을 합니다')
 
 
-p0 = Pokemon('아이리스', '어떤공격')
-p0.attack(0)
+class Pairi(Pokemon):  # inheritance
+    def __init__(self, owner, skills):
+        super().__init__(owner, skills)
+        self.name = "파이리"
+        print(f"{self.name}")
 
-pk1 = Pikachu('한지우', '번개/100만 볼트')
-# pk1.info()
+    def attack(self, idx):
+        print(f'{self.owner}의 {self.name}이 {self.skills[idx]}공격(물) 시전!')
 
-go1 = Gobugi('오바람', '고속스핀/거품/몸통박치기')
-# go1.info()
-go1.swim()
-go1.attack(2)
-pk1.attack(1)
+    def swim(self):
+        print(f'{self.name}가 수영을 합니다')
+
+
+while True:
+    menu = input('1) 포켓몬 생성 2) 프로그램 종료 : ')
+    if menu == '2':
+        print('프로그램을 종료합니다')
+        break
+    elif menu == '1':
+        pokemon = input('1) 피카츄  2) 꼬부기  3) 파이리: ')
+    if pokemon == '1':
+        n = input('플레이어 이름 입력 : ')
+        s = input('사용하능한 기술 입력(/로 구분하여 입력)')
+        p = Pikachu(n, s)
+    elif pokemon == '2':
+        n = input('플레이어 이름 입력 : ')
+        s = input('사용하능한 기술 입력(/로 구분하여 입력)')
+        p = Gobugi(n, s)
+    elif pokemon == '3':
+        n = input('플레이어 이름 입력 : ')
+        s = input('사용하능한 기술 입력(/로 구분하여 입력)')
+        p = Pairi(n, s)
+    else:
+        print("메뉴에서 골라주세요")
+    p.info()
+    attack_menu = input('공격 번호 입력')
+    p.attack(int(attack_menu)-1)
+
+else:
+    print('메뉴에서 골라주세요')
