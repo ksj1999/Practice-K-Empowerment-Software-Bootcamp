@@ -18,4 +18,14 @@ a = Thing2('abc')
 
 print(a.letters)
 
+# 10-3
+class Thing3():
+    def __init__(self, letters):
+        self.letters = letters
+
+
+b = Thing2('xyz')
+
+print(b.letters)
+
 
