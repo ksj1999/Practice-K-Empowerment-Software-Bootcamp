@@ -1,30 +1,28 @@
-# pokemon game v0.4
+# pokemon game v0.5
 # getter setter -> property -> decorator
-# __hiddenfield
+# class field
 
 class Pokemon:
+    count = 0
     def __init__(self, owner, skills):
         self.__hidden_owner = owner  # like private
         self.skills = skills.split('/')
         print(f"포켓몬 생성 :", end=' ')
+        Pokemon.count = Pokemon.count + 1
 
     @property
     def owner(self):
         return self.__hidden_owner
-
     @owner.setter
     def owner(self, owner):
         self.__hidden_owner = owner
-
     def info(self):
         print(f"{self.owner}의 포켓몬이 사용 가능한 스킬")
         for i in range(len(self.skills)):
             print(f'{i+1} : {self.skills[i]}')
-
     #owner = property(get_owner, set_owner)
         # for skill in self.skills:
         #     print(f'{skill}')
-
     def attack(self, idx):
         print(f'{self.skills[idx]} 공격 시전!')
 class Pikachu(Pokemon):  # inheritance
@@ -32,15 +30,20 @@ class Pikachu(Pokemon):  # inheritance
         super().__init__(owner, skills)
         self.name = "피카츄"
         print(f"{self.name}")
+
     def attack(self, idx):  # override
-        print(f'{self.owner}의 {self.name}가 {self.skills[idx]} 공격(전기) 시전!')
+        print(f'[삐까삐까] {self.owner}의 {self.name}가 {self.skills[idx]} 공격 시전!')
+
+
 class Ggoboogi(Pokemon):  # inheritance
     def __init__(self, owner, skills):
         super().__init__(owner, skills)
         self.name = "꼬부기"
         print(f"{self.name}")
+
     def attack(self, idx):  # override
-        print(f'{self.owner}의 {self.name}가 {self.skills[idx]} 공격(물) 시전!')
+        print(f'[꼬북꼬북] {self.owner}의 {self.name}가 {self.skills[idx]} 공격 시전!')
+
     def swim(self):
         print(f'{self.name}가 수영을 합니다')
 class Pairi(Pokemon):  # inheritance
@@ -48,9 +51,13 @@ class Pairi(Pokemon):  # inheritance
         super().__init__(owner, skills)
         self.name = "파이리"
         print(f"{self.name}")
+
     def attack(self, idx):  # override
-        print(f'{self.owner}의 {self.name}가 {self.skills[idx]} 공격(불) 시전!')
+        print(f'[파읠파읠] {self.owner}의 {self.name}가 {self.skills[idx]} 공격(불) 시전!')
+
+
 while True:
+    print(f'총 {Pokemon.count}마리의 포켓몬이 생성되었습니다')
     menu = input('1) 포켓몬 생성  2) 프로그램 종료 : ')
     if menu == '2':
         print('프로그램을 종료합니다')
