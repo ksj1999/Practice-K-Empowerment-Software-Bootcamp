@@ -1,4 +1,4 @@
-# 10-2
+# 10-3
 
 class Thing:
     pass
@@ -14,3 +14,11 @@ class Thing2:
 a = Thing2()
 a.letters = 'abc'
 print(a.letters)
+
+class Thing3:
+    pass
+
+b = Thing3()
+
+b.letters = 'xyz'
+print(b.letters)
