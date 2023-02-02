@@ -1,24 +1,11 @@
-# 10-3
+# 10-4
 
-class Thing:
-    pass
+class Element:
+    def __init__(self, name, symbol, number):
+        self.name = name
+        self.symbol = symbol
+        self.number = number
 
-example = Thing()
+a = Element('Hydrogen', 'H', '1')
 
-print(Thing)
-print(example)
-
-class Thing2:
-    pass
-
-a = Thing2()
-a.letters = 'abc'
-print(a.letters)
-
-class Thing3:
-    pass
-
-b = Thing3()
-
-b.letters = 'xyz'
-print(b.letters)
+print(a.name, a.number, a.symbol)
