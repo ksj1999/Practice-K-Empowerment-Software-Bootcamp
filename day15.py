@@ -3,8 +3,8 @@ pokemons = []  # 빈 배열
 
 def add_data(pokemon):
     pokemons.append(None)
-    pokemons[len(pokemons)-1] = pokemon
-
+    #pokemons[len(pokemons)-1] = pokemon
+    pokemons[-1] = pokemon
 
 add_data('피카츄')
 add_data('라이츄')
