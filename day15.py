@@ -1,75 +1,51 @@
-def insert_data(idx, pokemon):
+def print_poly(px):
     """
-    선형 리스트의 idx위치에 원소 삽입
-    :param idx: int
-    :param pokemon: str
-    :return: void
+    다항식을 포맷에 맞게 출력하는 함수
+    :param px: 계수를 원소로 가지고 있는 list
+    :return: 다항식 문자열
     """
-    if idx < 0 or idx > len(pokemons):
-        print("Out of range!")
-        return
-    pokemons.append(None)
-    for i in range(len(pokemons) - 1, idx, -1):
-        pokemons[i] = pokemons[i - 1]
-        pokemons[i - 1] = None
-    pokemons[idx] = pokemon
+    term = len(px) - 1
+    poly_str = "P(x) = "
+
+    for i in range(len(px)):
+        coef = px[i]
+        # if coef >= 0:
+        #     poly_str = poly_str + "+"
+
+        if i > 0 and coef > 0:
+            poly_str = poly_str + "+"
+        elif coef == 0:
+            term = term - 1
+            continue
+
+        poly_str = poly_str + f'{coef}x^{term} '
+        term = term - 1
+
+    return poly_str
 
 
-def delete_data(idx):
+def calc_poly(x_val, p_x):
     """
-    선형 리스트 idx 위치의 원소 삭제
-    :param idx: int
-    :return: void
+    다항식의 산술연산을 하는 함수
+    :param x_val: x값 integer
+    :param p_x: 계수를 원소로 가지고 있는 list
+    :return: 다항식 계산 결과 값 integer
     """
-    if idx < 0 or idx > len(pokemons):
-        print("Out of range!")
-        return
+    return_val = 0
+    term = len(p_x) - 1
 
-    len_pokemons = len(pokemons)
-    pokemons[idx] = None
+    for i in range(len(px)):
+        coef = p_x[i]
+        return_val = return_val + coef * x_val ** term
+        term = term - 1
 
-    # self 3-1
-    # for _ in range(len_pokemons - idx):
-    #     pokemons.pop()
-    for i in range(idx + 1, len_pokemons):
-        pokemons[i - 1] = pokemons[i]
-        pokemons[i] = None
-
-    pokemons.pop()
+    return return_val
 
 
-def add_data(pokemon):
-    """
-    선형 리스트의 맨 뒤에 원소 삽입
-    :param pokemon: str
-    :return: void
-    """
-    pokemons.append(None)
-    pokemons[len(pokemons)-1] = pokemon
-
-
-pokemons = []
+px = [3, -4, 0, 6]
 
 if __name__ == "__main__":
-    while True:
-        menu = input("1: 추가, 2: 삽입, 3: 삭제, 4: 종료--> ")
-        if (menu == '1'):
-            data = input("추가할 데이터--> ")
-            add_data(data)
-            print(pokemons)
-        elif (menu == '2'):
-            idx = int(input("삽입할 위치--> "))
-            data = input("추가할 데이터--> ")
-            insert_data(idx, data)
-            print(pokemons)
-        elif (menu == '3'):
-            idx = int(input("삭제할 위치--> "))
-            delete_data(idx)
-            print(pokemons)
-        elif (menu == '4'):
-            print(pokemons)
-            # exit()
-            break
-        else:
-            print("menu에서 고르세요")
-            continue
+    print(print_poly(px))
+
+    x_value = int(input("X 값 : "))
+    print(calc_poly(x_value, px))
