@@ -23,10 +23,11 @@ def delete_data(idx):
     pokemons[idx] = None
 
     for i in range(idx + 1, len_pokemons):
-        pokemons[i - 1] = pokemons[i]
+        # pokemons[i - 1] = pokemons[i]
         pokemons[i] = None
 
-    del(pokemons[len_pokemons-1])
+    for i in range(idx, i):
+        pokemons.pop()
 
 
 if __name__=="__main__":
@@ -34,7 +35,8 @@ if __name__=="__main__":
     #insert_data(3, '어니부기')
     delete_data(1)
     print(pokemons)
-    delete_data(5)
-    #insert_data(6, '거북왕')
+    #delete_data(5)
+    insert_data(6, '거북왕')
     print(pokemons)
+
 
