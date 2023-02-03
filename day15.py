@@ -1,46 +1,37 @@
-def print_poly(px, tx):
-    """
-    다항식을 포맷에 맞게 출력하는 함수
-    :param px: 계수를 원소로 가지고 있는 list
-    :param tx: 차수를 원소로 가지고 있는 list
-    :return: 다항식 문자열
-    """
-    poly_str = "P(x) = "
+def find_and_add(pokeymon, pcount):
+    findPok = -1
+    for i in range(len(pokeinfo)):
+        pair = pokeinfo[i]
+        if pcount >= pair[1]:
+            findPok = i
+            break
+    if findPok == -1:
+        findPok = len(pokeinfo)
 
-    for i in range(len(px)):
-        term = tx[i]
-        coef = px[i]
-        if coef >= 0:
-            poly_str = poly_str + "+"
-
-        poly_str = poly_str + f'{coef}x^{term} '
-
-    return poly_str
+    insert_data(findPok, (pokeymon, pcount))
 
 
-def calc_poly(x_val, px, tx):
-    """
-    다항식의 산술연산을 하는 함수
-    :param x_val: x값 integer
-    :param px: 계수를 원소로 가지고 있는 list
-    :param tx: 차수를 원소로 가지고 있는 list
-    :return: 다항식 계산 결과 값 integer
-    """
-    return_val = 0
+def insert_data(position, pokey):
+    if position < 0 or position > len(pokeinfo):
+        print("out of range")
+        return
 
-    for i in range(len(px)):
-        term = tx[i]
-        coef = px[i]
-        return_val = return_val + coef * x_val ** term
+    pokeinfo.append(None)
+    pokeylen = len(pokeinfo)
 
-    return return_val
+    for i in range(pokeylen - 1, position, -1):
+        pokeinfo[i] = pokeinfo[i - 1]
+        pokeinfo[i - 1] = None
+
+    pokeinfo[position] = pokey
 
 
-px = [3, -4, 5]
-tx = [300, 20, 0]
+pokeinfo = []
 
 if __name__ == "__main__":
-    print(print_poly(px, tx))
 
-    x_value = int(input("X 값 : "))
-    print(calc_poly(x_value, px, tx))
+    while True:
+        data = input("추가할 포켓몬--> ")
+        count = int(input("체력--> "))
+        find_and_add(data, count)
+        print(pokeinfo)
