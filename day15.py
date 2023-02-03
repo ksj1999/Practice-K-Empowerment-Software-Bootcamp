@@ -22,11 +22,8 @@ def delete_data(idx):
     len_pokemons = len(pokemons)
     pokemons[idx] = None
 
-    for i in range(idx + 1, len_pokemons):
+    for _ in range(len_pokemons - idx):
         # pokemons[i - 1] = pokemons[i]
-        pokemons[i] = None
-
-    for i in range(idx, i):
         pokemons.pop()
 
 
