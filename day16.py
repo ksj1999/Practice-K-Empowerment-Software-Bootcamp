@@ -1,71 +1,80 @@
-def is_stack_full():
-    global SIZE, stack, top
-    if top >= SIZE - 1:
-        return True
-    else:
-        return False
+import math
+import random
+
+class Node:
+    def __init__(self):
+        self.data = None
+        self.link = None
 
 
-def is_stack_empty():
-    global SIZE, stack, top
-    if top == - 1:
-        return True
-    else:
-        return False
 
+def print_stores(start):
 
-def push(data):
-    global SIZE, stack, top
-    if is_stack_full():
-        print("Stack is full!")
+    current = start
+    if current == None:
         return
-    top = top + 1
-    stack[top] = data
 
+    while current.link != head :
+        current = current.link
+        x, y = current.data[1:]
+        print(current.data[0], '편의점, 거리: ', math.sqrt(x*x + y*y))
+    print()
 
-def pop():
-    global SIZE, stack, top
-    if is_stack_empty():
-        print("Stack is empty~")
+def make_store_list(store):
+    global memory, head, current, pre
+
+    node = Node()
+    node.data = store
+    memory.append(node)
+
+    if head == None:
+        head = node
+        node.link = head
         return
-    temp = stack[top]
-    stack[top] = None
-    top = top - 1
-    return temp
+
+    node_x, node_y = node.data[1:]
+    node_dist = math.sqrt(node_x*node_x + node_y*node_y)
+    head_x, head_y = head.data[1:]
+    head_dist = math.sqrt(head_x*head_x + head_y*head_y)
+
+    if head_dist > node_dist:
+        node.link = head
+        last = head
+        while last.link != head:
+            last = last.link
+        last.link = node
+        head = node
+        return
+
+    current = head
+    while current.link != head:
+        pre = current
+        current = current.link
+        curr_x, curr_y = current.data[1:]
+        curr_dist = math.sqrt(curr_x*curr_x + curr_y*curr_y)
+        if curr_dist > node_dist:
+            pre.link = node
+            node.link = current
+            return
+
+    current.link = node
+    node.link = head
 
 
-def peek():
-    global SIZE, stack, top
-    if is_stack_empty():
-        print("Stack is empty~")
-        return None
-    return stack[top]
-
-
-SIZE = int(input("Stack Size : "))
-stack = [None for _ in range(SIZE)]
-top = -1
+memory = []
+head, current, pre = None, None, None
 
 if __name__ == "__main__":
 
-    while True:
-        menu = input("Insert(I)/Extract(E)/Verify(V)/Exit(X) : ")
+    store_array = []
+    store_name = 'A'
+    for _ in range(10):
+        store = (store_name, random.randint(1, 100), random.randint(1, 100))
+        store_array.append(store)
+        store_name = chr(ord(store_name)+1)
 
-        if menu == 'X' or menu == 'x':
-            break
-        elif menu == 'I' or menu == 'i':
-            data = input("Input Data : ")
-            push(data)
-            print("Stack Status : ", stack)
-        elif menu == 'E' or menu == 'e':
-            data = pop()
-            print("Extracted Data : ", data)
-            print("Stack Status : ", stack)
-        elif menu == 'V' or menu == 'v':
-            data = peek()
-            print("Check Data : ", data)
-            print("Stack Status : ", stack)
-        else:
-            print("Input Mismatch")
+    for store in store_array:
+        make_store_list(store)
 
-    print("Program End")
+    print_stores(head)
+
