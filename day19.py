@@ -1,3 +1,5 @@
+import tkinter as tk
+
 memos = [None for _ in range(100)]  # 전역 리스트
 memos[0], memos[1] = 0, 1
 
@@ -8,8 +10,7 @@ def fibo_memo_recu(n):
     :param n:
     :return:
     """
-    global memos, count_memo_recu
-    count_memo_recu = count_memo_recu + 1
+    global memos
 
     if n <= 1:
         return memos[n]
@@ -21,68 +22,34 @@ def fibo_memo_recu(n):
     return memos[n]
 
 
-def fibo_memo(n):
-    """
-    Memoization(DP)을 사용한 피보나치 수열 처리 함수
-    :param n:
-    :return:
-    """
-    global count_memoization
-    count_memoization = count_memoization + 1
-    memo = [0, 1]
-    if n <= 1:
-        return memo[n]
+def fact_recu(n):
+    if n == 1:
+        return 1
     else:
-        for i in range(2, n+1):
-            memo.append(memo[i-1] + memo[i-2])
-        return memo[n]
+        return n * fact_recu(n-1)
 
 
-def fibo_recu(n):
-    global count_recursion
-    count_recursion = count_recursion + 1
-
-    """
-    재귀 함수를 사용한 피보나치 수열 처리 함수
-    :param n:
-    :return:
-    """
-    if n <= 1:
-        return n
-    else:
-        return fibo_recu(n-1) + fibo_recu(n-2)
+def factorial_input():
+    lbl_results.config(text=f"팩토리얼 계산 출력 결과 : {fact_recu(int(en_num_input.get()))}")
 
 
-def fibo_iter(n):
-    """
-    반복문을 사용한 피보나치 수열 처리 함수
-    :param n:
-    :return:
-    """
-    r = list()
-    p1, p2 = 1, 1
-    for _ in range(n):
-        r.append(p1)
-        p1, p2 = p2, p1 + p2
-    return r[-1]
+def fibonacci_input():
+    lbl_results.config(text=f"피보나치 계산 출력 결과 : {fibo_memo_recu(int(en_num_input.get()))}")
 
 
-count_recursion = 0
-count_memoization = 0
-count_memo_recu = 0
+win = tk.Tk()  # 윈도우 생성
+win.title("Calculator")  # 피보나치, 팩토리얼 계산기
+win.geometry("250x150")  # 가로, 세로 너비 조정
 
-print('피보나치 수')
-for i in range(2, 30):
-    print(f'{i} : {fibo_memo(i)}')  # memoization
+en_num_input = tk.Entry()  # 텍스트 입력 상자
+lbl_results = tk.Label(text="계산기 출력 결과 : ")  # 레이블, 계산 결과 출력용
+btn_fact = tk.Button(text="팩토리얼", command=factorial_input)  # 팩토리얼 버튼, 이벤트 발생
+btn_fibo = tk.Button(text="피보나치", command=fibonacci_input)  # 피보나치 버튼, 이벤트 발생
 
-# for i in range(2, 40):
-#     print(f'{i} : {fibo_iter(i)}')  # repetition
+# 레이아웃 (grid 또는 place도 사용가능)
+en_num_input.pack()
+lbl_results.pack()
+btn_fact.pack(fill='x')
+btn_fibo.pack(fill='x')
 
-for i in range(2, 30):
-    print(f'{i} : {fibo_recu(i)}')  # recursion
-
-
-for i in range(2, 30):
-    print(f'{i} : {fibo_memo_recu(i)}')  # memo+recu
-
-print(f'재귀 : {count_recursion}, 메모 : {count_memoization}, 재귀메모 : {count_memo_recu}')
+win.mainloop()
