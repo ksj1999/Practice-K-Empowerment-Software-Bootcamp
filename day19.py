@@ -17,7 +17,7 @@ def fibo_memo_recu(n):
     if memos[n] is not None:  # 전역 메모리 memos에 이전에 계산한 결과 값이 존재하면
         return memos[n]
 
-    memos[n] = fibo_memo_recu(n-2) + fibo_recu(n-1)  # 처음 방문하는 n이면
+    memos[n] = fibo_memo_recu(n-2) + fibo_memo_recu(n-1)  # 처음 방문하는 n이면
     return memos[n]
 
 
